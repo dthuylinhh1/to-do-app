@@ -1,10 +1,12 @@
 import React, {Component} from "react";
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import withNavigation from './WithNavigation.jsx'   
+import withParams from "./withParams.jsx";
 
 class TodoApp extends Component{
     render(){
         const LoginComponentWithNavigation = withNavigation(LoginComponent);
+        const WelcomeComponentWithParams = withParams(WelcomeComponent);
         return(
             <div className="TodoApp">
                 
@@ -13,7 +15,8 @@ class TodoApp extends Component{
                         {/*for v5 react it is Switch, but the v6 react it becomes Routes */}
                         <Route path="/" exact element={<LoginComponentWithNavigation/>} />   
                         <Route path="/login" element={<LoginComponentWithNavigation/>}/>
-                        <Route path="/welcome" element={<WelcomeComponent/>}/>
+                        {/*add :name to show whoever login */}
+                        <Route path="/welcome/:name" element={<WelcomeComponentWithParams/>}/>
                         <Route path="*" element={<ErrorComponent/>}/>
                     </Routes>
                 </BrowserRouter>
@@ -27,7 +30,7 @@ class TodoApp extends Component{
 
 class WelcomeComponent extends Component{
     render(){
-        return <div>Welcome in 28minutes</div> 
+        return <div>Welcome {this.props.params.name}</div> 
     }
 }
 
@@ -66,7 +69,7 @@ class LoginComponent extends Component{
     loginClicked(){
         //in28minutes, dummy
         if(this.state.username==='in28minutes' && this.state.password==='dummy'){
-            this.props.navigate(`/welcome`)
+            this.props.navigate(`/welcome/${this.state.username}`)
             // this.setState({showSuccessMessage:true})
             // this.setState({hasLoginFailed:false})
         } 
