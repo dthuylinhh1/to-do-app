@@ -9,10 +9,12 @@ class TodoApp extends Component{
             <div className="TodoApp">
                 
                 <BrowserRouter>
-                    <Routes>
+                    <Routes> {/*the Routes ensures that at one point, only one route element is matched*/}
+                        {/*for v5 react it is Switch, but the v6 react it becomes Routes */}
                         <Route path="/" exact element={<LoginComponentWithNavigation/>} />   
                         <Route path="/login" element={<LoginComponentWithNavigation/>}/>
                         <Route path="/welcome" element={<WelcomeComponent/>}/>
+                        <Route path="*" element={<ErrorComponent/>}/>
                     </Routes>
                 </BrowserRouter>
 
@@ -27,6 +29,10 @@ class WelcomeComponent extends Component{
     render(){
         return <div>Welcome in 28minutes</div> 
     }
+}
+
+function ErrorComponent(){
+    return <div>An Error Occurred. I don't know what to do! Contact support at 123-456-7890!</div>
 }
 
 class LoginComponent extends Component{
