@@ -17,6 +17,7 @@ class TodoApp extends Component{
                         <Route path="/login" element={<LoginComponentWithNavigation/>}/>
                         {/*add :name to show whoever login */}
                         <Route path="/welcome/:name" element={<WelcomeComponentWithParams/>}/>
+                        <Route path="/todo" element={<ListTodoComponent/>}/>
                         <Route path="*" element={<ErrorComponent/>}/>
                     </Routes>
                 </BrowserRouter>
@@ -25,6 +26,47 @@ class TodoApp extends Component{
                 <WelcomeComponent/> */}
             </div>
         );
+    }
+}
+
+class ListTodoComponent extends Component{
+    constructor(props){
+        super(props)
+        this.state={
+            todos: 
+            [
+             {id:1, description: 'Learn React'},
+             {id:2, description: 'Travel'},
+             {id:3, description: 'Sleep'}
+            ]
+        }
+    }
+
+    render(){
+        return (
+            <div>
+                <h1>Lists Todos</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>description</th>
+                        </tr>
+                    </thead>
+                    <tbody> {/*add {} to indicate this should repeat */}
+                        {
+                            this.state.todos.map (
+                                todo => 
+                                <tr>
+                                    <td>{todo.id}</td>
+                                    <td>{todo.description}</td>
+                                </tr>
+                            )
+                        }
+                    </tbody>
+                </table>
+            </div> 
+        )
     }
 }
 
