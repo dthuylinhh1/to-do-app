@@ -34,9 +34,21 @@ class TodoApp extends Component{
 class HeaderComponent extends Component{
     render(){
         return (
-            <div>
-                Header <hr/>
-            </div>
+            <header>
+                {/* using bootstrap class to style the header and creating a nav bar */}
+                <nav className="navbar navbar-expand-md navbar-dark bg-dark">
+                    <div><a className="navbar-brand">in28munites</a></div>
+                    <ul className="navbar-nav">
+                        <li><Link  className="nav-link" to="/welcome/in28minutes">Home</Link></li>
+                        <li><Link  className="nav-link" to="/todos">Todos</Link></li>
+                    </ul>
+                    <ul className="navbar-nav navbar-collapse justify-content-end">
+                        <li><Link  className="nav-link" to="/login">Login</Link></li>
+                        <li><Link  className="nav-link" to="/logout">Logout</Link></li>
+                    </ul>
+                </nav>
+            </header>
+            
         )
     }
 }
