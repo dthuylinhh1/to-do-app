@@ -11,6 +11,7 @@ class TodoApp extends Component{
             <div className="TodoApp">
                 
                 <BrowserRouter>
+                    <HeaderComponent/>
                     <Routes> {/*the Routes ensures that at one point, only one route element is matched*/}
                         {/*for v5 react it is Switch, but the v6 react it becomes Routes */}
                         <Route path="/" exact element={<LoginComponentWithNavigation/>} />   
@@ -20,6 +21,7 @@ class TodoApp extends Component{
                         <Route path="/todos" element={<ListTodoComponent/>}/>
                         <Route path="*" element={<ErrorComponent/>}/>
                     </Routes>
+                    <FooterComponent/>
                 </BrowserRouter>
 
                 {/* <LoginComponent/>
@@ -28,6 +30,28 @@ class TodoApp extends Component{
         );
     }
 }
+
+class HeaderComponent extends Component{
+    render(){
+        return (
+            <div>
+                Header <hr/>
+            </div>
+        )
+    }
+}
+
+class FooterComponent extends Component{
+    render(){
+        return (
+            <div>
+                Footer <hr/>
+            </div>
+        )
+    }
+}
+
+
 
 class ListTodoComponent extends Component{
     constructor(props){
