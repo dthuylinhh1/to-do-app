@@ -60,16 +60,16 @@ class CounterButton extends Component{
 
     //adding state to a react counter component
     //Define the initial state in a constructor
-    constructor(){
-        super(); //Error 1 call super method
-        this.state = {
-            //define javascript object in here
-            counter : 0,
-        }
+    // constructor(){
+    //     super(); //Error 1 call super method
+    //     this.state = {
+    //         //define javascript object in here
+    //         counter : 0,
+    //     }
 
-        // this.increment = this.increment.bind(this);
-        // this.decrement = this.decrement.bind(this);
-    }
+    //     // this.increment = this.increment.bind(this);
+    //     // this.decrement = this.decrement.bind(this);
+    // }
     //state => counter 0
 
     //change render method into arrow method - so we won't need to bind increment method 

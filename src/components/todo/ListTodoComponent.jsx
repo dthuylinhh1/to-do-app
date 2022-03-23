@@ -25,7 +25,7 @@ class ListTodoComponent extends Component{
                                 <th>Target Date</th>
                             </tr>
                         </thead>
-                        <tbody> {/*add {} to indicate this should repeat */}
+                        <tbody>{/*add {} to indicate this should repeat */}
                             {
                                 this.state.todos.map (
                                     todo => 
